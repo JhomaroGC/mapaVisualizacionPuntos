@@ -212,7 +212,9 @@
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
     <script>
-        const API_URL = 'https://mapa-interactivo-parque-817217224047.us-central1.run.app/api/historial';
+        // Uso de proxy para saltar la restricción CORS desde GitHub Pages
+    const TARGET_API = 'https://mapa-interactivo-parque-817217224047.us-central1.run.app/api/historial';
+    const API_URL = 'https://corsproxy.io/?' + encodeURIComponent(TARGET_API);
 
         // 1. Inicializar el mapa de Leaflet en el área de Antioquia
         const map = L.map('map').setView([6.2644838, -75.4945626], 12);
