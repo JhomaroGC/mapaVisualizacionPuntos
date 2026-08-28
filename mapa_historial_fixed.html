@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Conexiones - Mapa Interactivo</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --panel-bg: #1e293b;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-color: #38bdf8;
+            --border-color: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow: hidden;
+        }
+
+        #sidebar {
+            width: 360px;
+            background-color: var(--panel-bg);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header h1 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 6px;
+        }
+
+        .header p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .stats {
+            display: flex;
+            gap: 12px;
+            padding: 15px 20px;
+            background-color: rgba(15, 23, 42, 0.4);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stat-card {
+            flex: 1;
+            background: var(--panel-bg);
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .stat-card .value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .stat-card .label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .list-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+        }
+
+        .list-item {
+            background-color: rgba(15, 23, 42, 0.3);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .list-item:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-1px);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .item-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .color-badge {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .item-time {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .item-coords {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-family: monospace;
+        }
+
+        #map {
+            flex: 1;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .btn-refresh {
+            margin-top: 10px;
+            width: 100%;
+            padding: 8px;
+            background: var(--accent-color);
+            color: #0f172a;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .btn-refresh:hover {
+            opacity: 0.9;
+        }
+
+        /* Ajuste de filtros para oscurecer las baldosas de OpenStreetMap */
+        .map-tiles-dark {
+            filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
+        }
+
+        /* Estilos personalizados para el popup del mapa */
+        .leaflet-popup-content-wrapper {
+            background-color: var(--panel-bg);
+            color: var(--text-color);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        .leaflet-popup-tip {
+            background-color: var(--panel-bg);
+        }
+        .popup-info strong {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="sidebar">
+        <div class="header">
+            <h1>Historial de Conexiones</h1>
+            <p>Visualización en tiempo real del API</p>
+            <button class="btn-refresh" onclick="cargarHistorial()">Actualizar Datos</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="value" id="total-registros">0</div>
+                <div class="label">Registros</div>
+            </div>
+            <div class="stat-card">
+                <div class="value" id="status-api">Cargando...</div>
+                <div class="label">Estado API</div>
+            </div>
+        </div>
+
+        <div class="list-container" id="lista-conexiones">
+            <!-- Los items del historial se renderizarán aquí -->
+        </div>
+    </div>
+
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script>
+        const API_URL = 'https://mapa-interactivo-parque-817217224047.us-central1.run.app/api/historial';
+
+        // 1. Inicializar el mapa de Leaflet en el área de Antioquia
+        const map = L.map('map').setView([6.2644838, -75.4945626], 12);
+
+        // Capa de mapa base gratuita y 100% libre (OpenStreetMap estándar con capa oscura CSS)
+        const tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            className: 'map-tiles-dark',
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Grupo de capas para almacenar los marcadores
+        const markersGroup = L.layerGroup().addTo(map);
+
+        // 2. Función para consumir la API y renderizar los puntos
+        async function cargarHistorial() {
+            const statusElem = document.getElementById('status-api');
+            const totalElem = document.getElementById('total-registros');
+            const listaElem = document.getElementById('lista-conexiones');
+
+            statusElem.innerText = 'Cargando...';
+            statusElem.style.color = '#38bdf8';
+
+            try {
+                // Fetch con configuración explícita para evitar problemas con CORS o peticiones cruzadas
+                const response = await fetch(API_URL, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+                
+                const data = await response.json();
+                const historial = data.historialConexiones || [];
+
+                // Limpiar marcadores y lista lateral previa
+                markersGroup.clearLayers();
+                listaElem.innerHTML = '';
+                
+                totalElem.innerText = historial.length;
+                statusElem.innerText = 'OK';
+                statusElem.style.color = '#4ade80';
+
+                if (historial.length === 0) {
+                    listaElem.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 20px;">No hay registros disponibles</p>';
+                    return;
+                }
+
+                const bounds = [];
+
+                historial.forEach((item) => {
+                    const { lat, lng, name, anonId, connectedAt, color } = item;
+
+                    if (lat && lng) {
+                        const puntoCoords = [lat, lng];
+                        bounds.push(puntoCoords);
+
+                        // Crear marcador circular con el color asignado desde el JSON
+                        const markerColor = color || '#38bdf8';
+                        const marker = L.circleMarker(puntoCoords, {
+                            radius: 9,
+                            fillColor: markerColor,
+                            color: '#ffffff',
+                            weight: 2,
+                            opacity: 1,
+                            fillOpacity: 0.85
+                        });
+
+                        const fechaFormateada = new Date(connectedAt).toLocaleString();
+
+                        // Contenido del Popup al dar clic sobre el punto
+                        const popupContent = `
+                            <div class="popup-info">
+                                <h3 style="margin-bottom: 6px; font-size: 1rem; color: #f8fafc;">${name || 'Dispositivo'}</h3>
+                                <p style="margin: 3px 0;"><strong>ID:</strong> ${anonId || 'N/A'}</p>
+                                <p style="margin: 3px 0;"><strong>Conexión:</strong> ${fechaFormateada}</p>
+                                <p style="margin: 3px 0;"><strong>Coordenadas:</strong> ${lat.toFixed(5)}, ${lng.toFixed(5)}</p>
+                            </div>
+                        `;
+
+                        marker.bindPopup(popupContent);
+                        markersGroup.addLayer(marker);
+
+                        // Crear tarjeta en la lista lateral
+                        const listItem = document.createElement('div');
+                        listItem.className = 'list-item';
+                        listItem.innerHTML = `
+                            <div class="item-header">
+                                <span class="item-title">
+                                    <span class="color-badge" style="background-color: ${markerColor}"></span>
+                                    ${name || 'Dispositivo Anónimo'}
+                                </span>
+                                <span class="item-time">${new Date(connectedAt).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+                            </div>
+                            <div class="item-coords">ID: ${anonId}</div>
+                            <div class="item-coords">Lat: ${lat.toFixed(5)}, Lng: ${lng.toFixed(5)}</div>
+                        `;
+
+                        // Al dar clic en el item de la lista, enfocar el punto en el mapa
+                        listItem.addEventListener('click', () => {
+                            map.flyTo(puntoCoords, 16, { duration: 1.2 });
+                            marker.openPopup();
+                        });
+
+                        listaElem.appendChild(listItem);
+                    }
+                });
+
+                // Reencuadrar automáticamente el mapa para que abarque todos los marcadores
+                if (bounds.length > 0) {
+                    map.fitBounds(bounds, { padding: [50, 50] });
+                }
+
+            } catch (error) {
+                console.error('Error al consultar el API:', error);
+                statusElem.innerText = 'Error';
+                statusElem.style.color = '#f87171';
+                listaElem.innerHTML = `
+                    <div style="color: #f87171; text-align: center; padding: 20px; font-size: 0.85rem;">
+                        <p style="font-weight: 600; margin-bottom: 6px;">Error al cargar datos del servidor</p>
+                        <p style="color: var(--text-muted);">Asegúrate de ejecutar esta página desde un servidor local (p. ej. Live Server en VS Code) para evitar bloqueos del navegador.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Ejecutar carga de historial
+        cargarHistorial();
+    </script>
+</body>
+</html>
