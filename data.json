@@ -1,0 +1,456 @@
+{
+"activeUsers": [],
+"historialConexiones": [
+{
+"socketId": "evq7gQW8yfwBpcRAAAAF",
+"anonId": "id_b96ab6",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-28T18:00:56.844Z",
+"lat": 6.266559189821778,
+"lng": -75.49537154338118,
+"color": "#a56cb9"
+},
+{
+"socketId": "befpxLBQQgsV9uThAAAD",
+"anonId": "id_2e6ef9",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-28T18:00:18.343Z",
+"lat": 6.26649191421442,
+"lng": -75.49538171815422,
+"color": "#6f44d3"
+},
+{
+"socketId": "wLw6cxzSwMBP7uSAAAAJ",
+"anonId": "id_c5af54",
+"name": "Móvil Android",
+"connectedAt": "2026-08-28T17:01:24.662Z",
+"lat": 6.2624781,
+"lng": -75.4946038,
+"color": "#9e414e"
+},
+{
+"socketId": "kpp9t_WebxYwZrEpAAAH",
+"anonId": "id_b2f085",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-28T16:57:03.014Z",
+"lat": 6.2632455719722575,
+"lng": -75.49422001366185,
+"color": "#004a44"
+},
+{
+"socketId": "J7gH7zu3IVGknrv1AAAF",
+"anonId": "id_b12b08",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-28T16:52:42.829Z",
+"lat": 6.261746836092496,
+"lng": -75.49457144691821,
+"color": "#09f349"
+},
+{
+"socketId": "JdWtsR60qZCC9QwJAAAD",
+"anonId": "id_64ffba",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-28T16:52:19.771Z",
+"lat": 6.262493432924192,
+"lng": -75.49466464594306,
+"color": "#345f70"
+},
+{
+"socketId": "ERR5uIeQ_QO7KoghAAAV",
+"anonId": "id_4d554f",
+"name": "Móvil Android",
+"connectedAt": "2026-08-28T16:06:16.244Z",
+"lat": 6.2644838,
+"lng": -75.4945626,
+"color": "#a8f580"
+},
+{
+"socketId": "g7zwGMi3Hj9tF_ajAAAT",
+"anonId": "id_b84a8d",
+"name": "Móvil Android",
+"connectedAt": "2026-08-28T16:03:18.300Z",
+"lat": 6.2627834,
+"lng": -75.4944022,
+"color": "#15e7f4"
+},
+{
+"socketId": "dxe8731gNCAQ5mXxAAAR",
+"anonId": "id_596834",
+"name": "Móvil Android",
+"connectedAt": "2026-08-28T16:02:08.662Z",
+"lat": 6.2618995,
+"lng": -75.4945832,
+"color": "#7792e2"
+},
+{
+"socketId": "LMlZLVxzp_wVFeA4AAAP",
+"anonId": "id_87231d",
+"name": "Móvil Android",
+"connectedAt": "2026-08-28T16:00:41.107Z",
+"lat": 6.2622458,
+"lng": -75.4950514,
+"color": "#137883"
+},
+{
+"socketId": "gypx4AXHXg6dZeCBAAAN",
+"anonId": "id_96e806",
+"name": "Móvil Android",
+"connectedAt": "2026-08-28T15:59:10.284Z",
+"lat": 6.2622444,
+"lng": -75.4951203,
+"color": "#fb0954"
+},
+{
+"socketId": "Mzs1PAg9rNoqviwaAAAJ",
+"anonId": "id_d56b7a",
+"name": "Móvil Android",
+"connectedAt": "2026-08-28T15:57:38.627Z",
+"lat": 6.262244,
+"lng": -75.4951208,
+"color": "#52cc4e"
+},
+{
+"socketId": "FQ7BVjiq_xEiGleGAAAD",
+"anonId": "id_9e9843",
+"name": "Móvil Android",
+"connectedAt": "2026-08-28T15:51:40.173Z",
+"lat": 6.2622403,
+"lng": -75.4951261,
+"color": "#d21a97"
+},
+{
+"socketId": "MsW8RlHJQ4bll-jjAAAB",
+"anonId": "id_118573",
+"name": "Móvil Android",
+"connectedAt": "2026-08-28T13:26:11.732Z",
+"lat": 6.26218,
+"lng": -75.4944735,
+"color": "#d08bda"
+},
+{
+"socketId": "gs8xnl02sYdKBIz7AAAJ",
+"anonId": "id_aa7b20",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-28T01:01:18.645Z",
+"lat": 6.165252782277934,
+"lng": -75.32533726227706,
+"color": "#949b3e"
+},
+{
+"socketId": "9tv64jeGOO1KJL0aAAAo",
+"anonId": "id_a4e622",
+"name": "Móvil Android",
+"connectedAt": "2026-08-27T23:15:29.981Z",
+"lat": 6.166861,
+"lng": -75.5802063,
+"color": "#c9630c"
+},
+{
+"socketId": "HbMnBwGoyzFaEDVBAAAB",
+"anonId": "id_0a093a",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-27T20:31:33.202Z",
+"lat": 6.154017979883708,
+"lng": -75.6068291908677,
+"color": "#b1dfba"
+},
+{
+"socketId": "B-K5V2NC57V4CS2tAAAB",
+"anonId": "id_5f8cd8",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-27T19:53:42.912Z",
+"lat": 6.26187432900052,
+"lng": -75.4946260254999,
+"color": "#dd05bd"
+},
+{
+"socketId": "JMQqRqIx2a6zl3UbAABD",
+"anonId": "id_36a1e7",
+"name": "Móvil Android",
+"connectedAt": "2026-08-27T18:40:00.513Z",
+"lat": 6.212365,
+"lng": -75.5986933,
+"color": "#b166b8"
+},
+{
+"socketId": "qbktgDrTsCv0D6lEAABB",
+"anonId": "id_682417",
+"name": "Móvil Android",
+"connectedAt": "2026-08-27T18:39:26.206Z",
+"lat": 6.2123785,
+"lng": -75.5986943,
+"color": "#e448f1"
+},
+{
+"socketId": "DcwC5U-r5BZvAUxvAAAD",
+"anonId": "id_8c1e74",
+"name": "Móvil Android",
+"connectedAt": "2026-08-27T18:21:21.926Z",
+"lat": 6.1867148,
+"lng": -75.6005611,
+"color": "#ec14d0"
+},
+{
+"socketId": "JJf_RV7cTor2obkKAAAB",
+"anonId": "id_7459e9",
+"name": "Móvil Android",
+"connectedAt": "2026-08-27T18:20:21.086Z",
+"lat": 6.1868892,
+"lng": -75.6007689,
+"color": "#0426f2"
+},
+{
+"socketId": "LYs2lttuChdegQSNAAAD",
+"anonId": "id_e5f18b",
+"name": "Móvil Android",
+"connectedAt": "2026-08-27T16:49:53.811Z",
+"lat": 6.2647002,
+"lng": -75.4949302,
+"color": "#c4efc7"
+},
+{
+"socketId": "yGzrPv-LNwWyQU5UAAAB",
+"anonId": "id_d3a30b",
+"name": "Móvil Android",
+"connectedAt": "2026-08-27T16:43:21.668Z",
+"lat": 6.262008,
+"lng": -75.4945949,
+"color": "#5abd1f"
+},
+{
+"socketId": "N-g2z3liEcOQErlSAAAD",
+"anonId": "id_9bf7de",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-27T16:08:24.997Z",
+"lat": 6.261687822777242,
+"lng": -75.4947101966885,
+"color": "#96e896"
+},
+{
+"socketId": "0WOvNADIk4HDYHQkAAAB",
+"anonId": "id_da2620",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-27T16:08:17.452Z",
+"lat": 6.2617796262850165,
+"lng": -75.4946210841855,
+"color": "#5af350"
+},
+{
+"socketId": "ovBP8PwLg-vBR5TkAAAR",
+"anonId": "id_f5d623",
+"name": "Móvil Android",
+"connectedAt": "2026-08-27T15:08:13.553Z",
+"lat": 6.2614222,
+"lng": -75.4944714,
+"color": "#f8f886"
+},
+{
+"socketId": "gxwa8Wu2UCSzmWdyAAAM",
+"anonId": "id_6a5240",
+"name": "Móvil Android",
+"connectedAt": "2026-08-27T14:56:21.148Z",
+"lat": 6.2618746,
+"lng": -75.4946833,
+"color": "#b2566b"
+},
+{
+"socketId": "65w0z7ZRgMI7nhPYAAAF",
+"anonId": "id_65c1ac",
+"name": "Móvil Android",
+"connectedAt": "2026-08-27T14:54:13.877Z",
+"lat": 6.2620206,
+"lng": -75.4937974,
+"color": "#ab34c8"
+},
+{
+"socketId": "x7xQfX_EVJ5N1NvbAAAB",
+"anonId": "id_93c5d9",
+"name": "Móvil Android",
+"connectedAt": "2026-08-27T14:52:13.560Z",
+"lat": 6.261788,
+"lng": -75.4946148,
+"color": "#b58995"
+},
+{
+"socketId": "TLYBiogv3aFPdLezAAAT",
+"anonId": "id_0687f4",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-27T01:46:05.619Z",
+"lat": 6.154016806992195,
+"lng": -75.60683673965352,
+"color": "#bdbaad"
+},
+{
+"socketId": "Z14KspzIzj_6vYVRAAAR",
+"anonId": "id_e0f617",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-27T01:45:05.845Z",
+"lat": 6.281535319277273,
+"lng": -75.50267866789127,
+"color": "#f00a44"
+},
+{
+"socketId": "4vbDIy2tX2xb0UH0AABs",
+"anonId": "id_c7dc33",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-26T21:51:44.077Z",
+"lat": 6.261534952394536,
+"lng": -75.49496316671838,
+"color": "#f79bd3"
+},
+{
+"socketId": "eG_pCe_YtBLyDPP4AABq",
+"anonId": "id_185045",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-26T21:45:03.399Z",
+"lat": 6.2616191465505375,
+"lng": -75.49471724114616,
+"color": "#8c1eb1"
+},
+{
+"socketId": "pv_fmGRX82nnaF4MAABg",
+"anonId": "id_44f635",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-26T21:44:29.721Z",
+"lat": 6.261533255228437,
+"lng": -75.49488773702161,
+"color": "#9e9eca"
+},
+{
+"socketId": "EZNXdg_u2Nu87SRiAABE",
+"anonId": "id_d2464b",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-26T21:40:04.447Z",
+"lat": 6.2622988248415075,
+"lng": -75.4948601633576,
+"color": "#e151fe"
+},
+{
+"socketId": "2dhnyUwRA3ivDGKRAABC",
+"anonId": "id_a07462",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-26T21:39:12.369Z",
+"lat": 6.2632066713566985,
+"lng": -75.49431287099283,
+"color": "#ad8dac"
+},
+{
+"socketId": "jNPhMzavZkIPMKv7AAAu",
+"anonId": "id_e2c930",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-26T21:36:27.474Z",
+"lat": 6.26482620399566,
+"lng": -75.49491504722606,
+"color": "#618336"
+},
+{
+"socketId": "yldd24U4IzXvvSrJAAAa",
+"anonId": "id_2cdc7d",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-26T21:34:01.398Z",
+"lat": 6.264808302239997,
+"lng": -75.49494107422466,
+"color": "#120d2b"
+},
+{
+"socketId": "Ec2m5VScpzm80nnPAAAY",
+"anonId": "id_b8ae01",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-26T21:31:58.262Z",
+"lat": 6.266452344459217,
+"lng": -75.49541980800741,
+"color": "#0ae161"
+},
+{
+"socketId": "soT-8v_6bzNWS7A1AAAW",
+"anonId": "id_acc303",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-26T21:29:08.343Z",
+"lat": 6.267332044293925,
+"lng": -75.49515028438829,
+"color": "#e3c62c"
+},
+{
+"socketId": "ybWEOx6gxAfPtw9DAAAU",
+"anonId": "id_548597",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-26T21:27:16.122Z",
+"lat": 6.268080831089217,
+"lng": -75.49431209477312,
+"color": "#109449"
+},
+{
+"socketId": "1Htuv7k6w2DRkCx9AAAS",
+"anonId": "id_e1e321",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-26T21:26:27.256Z",
+"lat": 6.268802076902168,
+"lng": -75.49343504419221,
+"color": "#0a60ca"
+},
+{
+"socketId": "VKlXVod1VI6cmwOsAAAE",
+"anonId": "id_418019",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-26T21:20:30.219Z",
+"lat": 6.2691608657595514,
+"lng": -75.49378117854032,
+"color": "#34334c"
+},
+{
+"socketId": "fz1-HHyGpmO9VAikAAAC",
+"anonId": "id_e60efb",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-26T21:20:21.774Z",
+"lat": 6.258920411024274,
+"lng": -75.58731832715819,
+"color": "#c9dcb9"
+},
+{
+"socketId": "7EPxPX3dTn3wLdFvAAAB",
+"anonId": "id_c799a9",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-26T20:12:24.020Z",
+"lat": 6.269235462527153,
+"lng": -75.49376700627477,
+"color": "#02ea66"
+},
+{
+"socketId": "-C1OJHsGaYwo2j63AAAX",
+"anonId": "id_ff696d",
+"name": "Móvil Android",
+"connectedAt": "2026-08-26T18:12:28.705Z",
+"lat": 6.264866,
+"lng": -75.494904,
+"color": "#133cc2"
+},
+{
+"socketId": "3EKxOECEZOyViAzUAAAD",
+"anonId": "id_b974cd",
+"name": "Móvil Android",
+"connectedAt": "2026-08-26T18:00:28.758Z",
+"lat": 6.2618991,
+"lng": -75.494628,
+"color": "#a1fa8f"
+},
+{
+"socketId": "mnJqL-eztpAdZAYrAAAB",
+"anonId": "id_6720d9",
+"name": "Móvil Android",
+"connectedAt": "2026-08-26T17:51:04.385Z",
+"lat": 6.2644323,
+"lng": -75.4921348,
+"color": "#03aba3"
+},
+{
+"socketId": "SWsvJMLrrFdhIS3NAAAB",
+"anonId": "id_6c8eae",
+"name": "Dispositivo iOS (iPhone/iPad)",
+"connectedAt": "2026-08-26T14:17:08.947Z",
+"lat": 6.220853106533228,
+"lng": -75.6076281645689,
+"color": "#cb064c"
+}
+],
+"totalVisitas": 313
+}

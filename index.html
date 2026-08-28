@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Conexiones - Mapa Interactivo</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+    <!-- Hoja de estilos externa -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <div id="sidebar">
+        <div class="header">
+            <h1>Historial de Conexiones</h1>
+            <p>Visualización en tiempo real del API</p>
+            <button class="btn-refresh" onclick="cargarHistorial()">Actualizar Datos</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="value" id="total-registros">0</div>
+                <div class="label">Registros</div>
+            </div>
+            <div class="stat-card">
+                <div class="value" id="status-api">Cargando...</div>
+                <div class="label">Estado API</div>
+            </div>
+        </div>
+
+        <div class="list-container" id="lista-conexiones">
+            <!-- Los items del historial se renderizarán aquí -->
+        </div>
+    </div>
+
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <!-- Lógica JavaScript externa -->
+    <script src="app.js"></script>
+</body>
+</html>
