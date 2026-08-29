@@ -1,5 +1,14 @@
 const CSV_URL = './data.csv';
 
+// -----------------------------------------------------------------
+// FUNCIÓN AUXILIAR: Convertir Date a Número de Serie de Excel
+// -----------------------------------------------------------------
+function dateToExcelSerial(date) {
+    const MS_PER_DAY = 86400000;
+    const EXCEL_EPOCH_OFFSET = 25569; // Ajuste de días entre 1900 y 1970
+    return (date.getTime() / MS_PER_DAY) + EXCEL_EPOCH_OFFSET;
+}
+
 // 1. Inicializar mapa Leaflet
 const map = L.map('map').setView([6.2644838, -75.4945626], 12);
 
@@ -26,7 +35,6 @@ function cargarHistorial() {
         skipEmptyLines: true,
         complete: function (results) {
             let historial = results.data;
-            // Ordenar descendente: Más actual arriba -> Más antiguo abajo
             historial.sort((a, b) => new Date(b.connectedAt).getTime() - new Date(a.connectedAt).getTime());
 
             markersGroup.clearLayers();
@@ -44,42 +52,32 @@ function cargarHistorial() {
             const bounds = [];
 
             historial.forEach((item) => {
-                // Convertir las coordenadas de string a número decimal
                 const lat = parseFloat(item.lat);
                 const lng = parseFloat(item.lng);
-                const { name, anonId, connectedAt, color } = item;
+                const { name, anonId, connectedAt } = item;
 
                 const dateConexion = new Date(connectedAt);
-
-                const yearNum = dateConexion.getFullYear();
-                const monthNum = dateConexion.getMonth() + 1;
-                const dayNum = dateConexion.getDate();
-                const hourNum = dateConexion.getHours();
-                const minuteNum = dateConexion.getMinutes();
-                const secondNum = dateConexion.getSeconds();
-
                 const dateNow = new Date();
 
-                const yearNow = dateNow.getFullYear();
-                const monthNow = dateNow.getMonth() + 1;
-                const dayNow = dateNow.getDate();
-                const hourNow = 23;
-                const minuteNow = 59;
-                const secondNow = 59;
+                // ---------------------------------------------------------
+                // USO DE LA FUNCIÓN: Cálculo de opacidad preciso
+                // ---------------------------------------------------------
+                const excelConexion = dateToExcelSerial(dateConexion);
+                const excelNow = dateToExcelSerial(dateNow);
 
-                // Suma matemática de todos los componentes
-                const totalFechaHoraConexion = yearNum + monthNum + dayNum + hourNum + minuteNum + secondNum;
-                const totalSumaNow = yearNow + monthNow + dayNow + hourNow + minuteNow + secondNow;
+                // Diferencia real en DÍAS enteros y fracciones de día
+                const diasDiferencia = excelNow - excelConexion;
 
-                //Calculo de opacidad
-                const opacidad = (totalSumaNow - totalFechaHoraConexion) / 100;
+                // Ajusta esta fórmula según qué tan rápido quieras que pierdan opacidad
+                // Ejemplo: Perderá opacidad progresivamente en un rango de 10 días
+                let opacidad = 1 - (diasDiferencia / 10);
+                if (opacidad < 0.2) opacidad = 0.2; // Opacidad mínima para no invisibilizar
 
-                console.log(`${totalSumaNow}-${totalFechaHoraConexion}`);
                 if (!isNaN(lat) && !isNaN(lng)) {
                     const puntoCoords = [lat, lng];
                     bounds.push(puntoCoords);
 
-                    const markerColor = `rgba(${245}, ${49}, ${104}, ${opacidad})`;
+                    const markerColor = `rgba(245, 49, 104, ${opacidad})`;
                     const marker = L.circleMarker(puntoCoords, {
                         radius: 8,
                         fillColor: markerColor,
@@ -111,7 +109,6 @@ function cargarHistorial() {
                                 <span class="color-badge" style="background-color: ${markerColor}"></span>
                                 ${name || 'Dispositivo Anónimo'}
                             </span>
-                            
                         </div>
                         <span class="item-time">Conexión: ${connectedAt ? new Date(connectedAt).toLocaleTimeString([], {year: '2-digit',month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit' }) : ''}</span>
                         <div class="item-coords">ID: ${anonId}</div>
