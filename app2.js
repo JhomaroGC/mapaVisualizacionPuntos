@@ -50,6 +50,9 @@ function cargarHistorial() {
             }
 
             const bounds = [];
+    
+            let id_registro = historial.length;
+            
 
             historial.forEach((item) => {
                 const lat = parseFloat(item.lat);
@@ -72,7 +75,7 @@ function cargarHistorial() {
                 // Ejemplo: Perderá opacidad progresivamente en un rango de 10 días
                 let opacidad = 1 - (diasDiferencia / 10);
                 if (opacidad < 0.2) opacidad = 0.2; // Opacidad mínima para no invisibilizar
-
+        
                 if (!isNaN(lat) && !isNaN(lng)) {
                     const puntoCoords = [lat, lng];
                     bounds.push(puntoCoords);
@@ -86,6 +89,7 @@ function cargarHistorial() {
                         opacity: opacidad,
                         fillOpacity: opacidad
                     });
+                    // Vincula el texto centrado dentro del círculo
 
                     const fechaFormateada = connectedAt ? new Date(connectedAt).toLocaleString() : 'N/A';
 
@@ -107,7 +111,7 @@ function cargarHistorial() {
                         <div class="item-header">
                             <span class="item-title">
                                 <span class="color-badge" style="background-color: ${markerColor}"></span>
-                                ${name || 'Dispositivo Anónimo'}
+                                ${id_registro} ${name || 'Dispositivo Anónimo'}
                             </span>
                         </div>
                         <span class="item-time">Conexión: ${connectedAt ? new Date(connectedAt).toLocaleTimeString([], {year: '2-digit',month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit' }) : ''}</span>
@@ -122,6 +126,7 @@ function cargarHistorial() {
 
                     listaElem.appendChild(listItem);
                 }
+                id_registro -=1;
             });
 
             if (bounds.length > 0) {
