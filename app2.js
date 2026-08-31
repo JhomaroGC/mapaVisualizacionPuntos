@@ -89,7 +89,6 @@ function cargarHistorial() {
                         opacity: opacidad,
                         fillOpacity: opacidad
                     });
-                    // Vincula el texto centrado dentro del círculo
 
                     const fechaFormateada = connectedAt ? new Date(connectedAt).toLocaleString() : 'N/A';
 

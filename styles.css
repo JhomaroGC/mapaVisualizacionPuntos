@@ -172,4 +172,5 @@ body {
 
 .popup-info strong {
     color: var(--accent-color);
+    opacity: 0.6;
 }
