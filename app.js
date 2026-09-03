@@ -1,3 +1,4 @@
+/*
 // Ruta al archivo JSON local
 const JSON_URL = './data.json';
 
@@ -125,3 +126,5 @@ async function cargarHistorial() {
 
 // Cargar datos automáticamente al iniciar
 cargarHistorial();
+
+*/

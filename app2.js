@@ -112,10 +112,7 @@ function cargarHistorial() {
                                 <span class="color-badge" style="background-color: ${markerColor}"></span>
                                 ${id_registro} ${name || 'Dispositivo Anónimo'}
                             </span>
-                        </div>
-                        <span class="item-time">Conexión: ${connectedAt ? new Date(connectedAt).toLocaleTimeString([], {year: '2-digit',month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit' }) : ''}</span>
-                        <div class="item-coords">ID: ${anonId}</div>
-                        <div class="item-coords">Lat: ${lat.toFixed(5)}, Lng: ${lng.toFixed(5)}</div>
+                        </div>                       
                     `;
 
                     listItem.addEventListener('click', () => {
