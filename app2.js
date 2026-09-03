@@ -112,6 +112,7 @@ function cargarHistorial() {
                                 <span class="color-badge" style="background-color: ${markerColor}"></span>
                                 ${id_registro} ${name || 'Dispositivo Anónimo'}
                             </span>
+                            <p style="margin: 3px 0;"><strong>Conexión:</strong> ${fechaFormateada}</p>
                         </div>                       
                     `;
 
